@@ -3,7 +3,7 @@ const User = require("../models/users");
 
 const signInController = async (req, res) => {
   try {
-    // console.log("From SigninController")
+    console.log("From SigninController")
 
     const { name, email, photo } = await req.body;
     // console.log(req.body)
@@ -40,7 +40,7 @@ const signInController = async (req, res) => {
 const getAllUsersController = async (req, res) => {
   try {
     const email = req.params.id;
-    // console.log("Email in getAll USer:",email);
+    console.log("Email in getAll USer:",email);
     const allUsers = await User.find({ email: { $ne: email } });
     return res.status(200).send({
       success: true,
