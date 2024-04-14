@@ -6,6 +6,7 @@ const saveChatController = async (req, res) => {
     // const newChat = new Chat({
     //     fromEmail:"ok",toEmail:"nok",msgId:"ok",msg:"plp"
     // });
+    console.log("SavingChat");
     const newChat = new Chat({
       fromEmail,
       toEmail,
@@ -13,7 +14,8 @@ const saveChatController = async (req, res) => {
       msg,
       photo,
     });
-    newChat.save();
+    await newChat.save();
+    console.log("Chat Saved");
     return res.status(200).send({
       success: true,
       msg: "Chat Save Successfully",
